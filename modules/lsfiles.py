@@ -1,7 +1,9 @@
 import os
 
-#遍历目标文件夹所有文件，输出完整路径
-def lsfiles(file_dir):
+def lsfiles(file_dir: str):
+    '''
+    lsfile("要列举的文件夹路径")
+    '''
     file_list = []
     for root, dirs, files in os.walk(file_dir):
         for file in files:
