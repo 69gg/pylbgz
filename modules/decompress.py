@@ -5,6 +5,7 @@ def decompress(input_path: str, output_path: str) -> json:
     '''
     decompress("输入压缩文件路径", "输出文件夹路径")
     '''
+def decompress(input_path: str, output_path: str) -> json:
     try:
         with open(input_path, 'rb') as pylbgzf:
             content = pylbgzf.read()
@@ -36,9 +37,8 @@ def decompress(input_path: str, output_path: str) -> json:
     except FileNotFoundError as e:
         data = {
             "state": "Error", 
-            "Error": 
-                {
-                    "Msg": f"Error: {str(e)}", "Error": "FileNotFound"
-                }
+            "Error": {
+                "Msg": f"Error: {str(e)}", "Error": "FileNotFound"
+            }
         }
         return json.dumps(data)
