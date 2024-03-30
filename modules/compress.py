@@ -1,6 +1,6 @@
 import json
 
-def compress(files: list, path = "./NewFile.pylbgz") -> json:
+def compress(files: list, path = "NewFile.pylbgz") -> json:
     with open(path, 'wb') as pylbgzf:
         pylbgzf.write(b"pylbgz_file\n")
     for file in files:
@@ -12,4 +12,11 @@ def compress(files: list, path = "./NewFile.pylbgz") -> json:
                 pybgzf.write(content)
                 pybgzf.write(b"END PYLBGZ FILE\n" + file.encode('utf-8') + b"END")
         except FileNotFoundError:
-            return json.dumps({"state": "Error", "Error": {"Msg": "The file cannot be found by us.", "Error": "FileNotFound"}})
+            data = {"state": "Error", 
+                    "Error": 
+                        {
+                        "Msg": f"The file '{file}' cannot be found by us.", "Error": "FileNotFound"
+                        }
+                    }
+            return json.dumps(data)
+    return json.dumps({"state": "Success", "Msg": "Files compressed successfully."})
