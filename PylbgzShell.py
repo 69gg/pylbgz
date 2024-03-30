@@ -14,12 +14,18 @@ while True:
     
         compress_match = re.match(r'^compress (.+) output (.+)', content)
         decompress_match = re.match(r'^decompress (.+) output (.+)', content)
+        compress_match2 = re.match(r'^compress (.+)', content)
         ls_match = re.match(r'^ls (.+)', content)
     
         if compress_match:
             files = compress_match.group(1).split(',')
             output_path = compress_match.group(2)
             result = compress(files, output_path)
+            print(result)
+
+        if compress_match2:
+            files = compress_match2.group(1).split(',')
+            result = compress(files)
             print(result)
     
         elif decompress_match:
