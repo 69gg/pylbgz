@@ -1,6 +1,8 @@
 import json
 
 def decompress(path: str, output_path: str) -> json:
+    if output_path[-1] != '/' or output_path[-1] != '\\':
+        output_path += '/'
     try:
         with open(path, 'rb') as pylbgzf:
             content = pylbgzf.read()
