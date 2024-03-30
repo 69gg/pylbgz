@@ -16,10 +16,9 @@ def compress(files: list, path = "NewFile.pylbgz") -> json:
                 pybgzf.write(b"END PYLBGZ FILE\n" + file.encode('utf-8') + b"END")
         except FileNotFoundError:
             data = {"state": "Error", 
-                    "Error": 
-                        {
+                    "Error": {
                         "Msg": f"The file '{file}' cannot be found by us.", "Error": "FileNotFound"
-                        }
                     }
+            }
             return json.dumps(data)
     return json.dumps({"state": "Success", "Msg": "Files compressed successfully."})
