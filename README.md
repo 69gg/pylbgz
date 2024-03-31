@@ -1,5 +1,3 @@
-根据提供的信息，以下是README.md文件的内容：
-
 # Pylbgz
 Pylbgz是一个小型的的Python项目，用于打包和复原文件。它基于Python语言，并配套了PylbgzShell工具来方便的进行用户操作。
 PylbgzShell是一个简单的Python Shell工具，用于压缩和解压文件。用户可以通过命令行输入指令来进行文件的压缩和解压操作。
