@@ -8,7 +8,7 @@ sys.dont_write_bytecode = True
 from modules.compress import *
 from modules.decompress import *
 from modules.lsfiles import *
-from modules.api import api
+from api import api
 
 while True:
     try:

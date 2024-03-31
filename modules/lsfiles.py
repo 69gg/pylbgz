@@ -1,6 +1,6 @@
 import os
 
-def lsfiles(file_dir: str):
+def lsfiles(file_dir: str) -> list:
     file_list = []
     for root, dirs, files in os.walk(file_dir):
         for file in files:

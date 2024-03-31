@@ -5,6 +5,7 @@ sys.dont_write_bytecode = True
 from modules.compress import compress
 from modules.decompress import decompress
 from modules.lsfiles import lsfiles
-from modules.api import api
+from api import api
 
 # to do
+api()

@@ -1,6 +1,6 @@
 import json
 
-def compress(files: list, path = "NewFile.pylbgz") -> json:
+def compress(files: list, path = "NewFile.pylbgz") -> dict:
     with open(path, 'w') as pylbgzf:
         pylbgzf.write("pylbgz_file")
     for file in files:
@@ -17,8 +17,8 @@ def compress(files: list, path = "NewFile.pylbgz") -> json:
             data = {"state": "Error", 
                     "Error": {
                         "Msg": f"The file '{file}' cannot be found by us.", "Error": "FileNotFound",
-                        "result": f"files{files}, path{path}"
+                        "result": f"files {files}, path {path}"
                     }
             }
-            return json.dumps(data)
-    return json.dumps({"state": "Success", "Msg": "Files compressed successfully."})
+            return data
+    return {"state": "Success", "Msg": "Files compressed successfully."}

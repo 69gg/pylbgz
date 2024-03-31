@@ -1,7 +1,7 @@
 import json
 import os
 
-def decompress(input_path: str, output_path: str) -> json:
+def decompress(input_path: str, output_path: str) -> dict:
     try:
         with open(input_path, 'rb') as pylbgzf:
             content = pylbgzf.read()
@@ -27,10 +27,9 @@ def decompress(input_path: str, output_path: str) -> json:
                     file_content = file_content[:-7]
                     f.write(file_content)
                     
-            return json.dumps({"state": "Success", "Msg": "Files decompressed successfully."})
+            return {"state": "Success", "Msg": "Files decompressed successfully."}
         else:
-            return json.dumps({"state": "Error", "Error": {"Msg": "Invalid compressed file format.", "Error": "InvalidFormat",
-                                                           "result": f"input_path {input_path}, output_path {output_path}"}})
+            return {"state": "Error", "Error": {"Msg": "Invalid compressed file format.", "Error": "InvalidFormat","result": f"input_path {input_path}, output_path {output_path}"}}
     
     except FileNotFoundError as e:
         data = {
@@ -39,4 +38,4 @@ def decompress(input_path: str, output_path: str) -> json:
                 "Msg": f"Error: {str(e)}", "Error": "FileNotFound"
             }
         }
-        return json.dumps(data)
+        return data
