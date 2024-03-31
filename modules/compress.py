@@ -1,19 +1,18 @@
 import json
 
 def compress(files: list, path = "NewFile.pylbgz") -> json:
-    '''
-    compress("文件列表", "输出压缩文件路径")
-    '''
-    with open(path, 'wb') as pylbgzf:
-        pylbgzf.write(b"pylbgz_file\n")
+    with open(path, 'w') as pylbgzf:
+        pylbgzf.write("pylbgz_file")
     for file in files:
         try:
             with open(file, 'rb') as f:
                 content = f.read()
+            with open(path, 'a') as pybgzf:
+                pybgzf.write("START PYLBGZ FILE" + file + "START")
             with open(path, 'ab') as pybgzf:
-                pybgzf.write(b"START PYLBGZ FILE\n" + file.encode('utf-8') + b"START")
                 pybgzf.write(content)
-                pybgzf.write(b"END PYLBGZ FILE\n" + file.encode('utf-8') + b"END")
+            with open(path, 'a') as pybgzf:
+                pybgzf.write("END PYLBGZ FILE" + file + "END")
         except FileNotFoundError:
             data = {"state": "Error", 
                     "Error": {
