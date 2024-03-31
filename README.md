@@ -32,6 +32,11 @@ lsfiles path_to_directory
 mkdir new_folder
 ```
 
+### 启用api
+```PylbgzShel
+api
+```
+
 ### 退出PylbgzShell
 
 ```PylbgzShell
@@ -43,6 +48,15 @@ exit
 查看`main.py`来获取引入库的方法。
 
 方法：
-    1. 压缩文件：`compress(file_paths, output_file_path)`
-    2. 解压文件：`decompress(file_path, output_files_path)`
+    1. 压缩文件：`compress([input_file_paths], output_file_path)`<br>
+    2. 解压文件：`decompress(input_file_path, output_files_path)`<br>
     3. 列出文件：`lsfiles(directory_path)`
+
+## 使用方法-Pylbgz api
+
+查看`main.py`来获取引入库的方法。引入后使用`api()`来调用。亦可以在PylbgzShell中使用`api`命令来启用api。
+
+方法：(GET)
+    1. 压缩文件：`URL/compress?file=[file_paths]&path=output_file_path`<br>
+    2. 解压文件：`URL/decompress?input=input_file_path&outputpath=output_files_path`<br>
+    3. 列出文件：`URL/lsfiles?directory_path`

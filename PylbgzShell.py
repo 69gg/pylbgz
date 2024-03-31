@@ -8,6 +8,7 @@ sys.dont_write_bytecode = True
 from modules.compress import *
 from modules.decompress import *
 from modules.lsfiles import *
+from modules.api import api
 
 while True:
     try:
@@ -55,6 +56,9 @@ while True:
         elif mkdir_match:
             path = mkdir_match.group(1)
             os.mkdir(path)
+
+        elif content == "api":
+            api()
 
         else:
             print("Invalid command. Please try again.")

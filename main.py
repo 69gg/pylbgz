@@ -2,8 +2,9 @@ import sys
 sys.dont_write_bytecode = True
 #禁用pyc
 
-from modules.compress import *
-from modules.decompress import *
-from modules.lsfiles import *
+from modules.compress import compress
+from modules.decompress import decompress
+from modules.lsfiles import lsfiles
+from modules.api import api
 
 # to do
