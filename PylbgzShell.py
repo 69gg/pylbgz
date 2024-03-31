@@ -15,7 +15,7 @@ while True:
         compress_match = re.match(r'^compress (.+) output (.+)', content)
         decompress_match = re.match(r'^decompress (.+) output (.+)', content)
         compress_match2 = re.match(r'^compress (.+)', content)
-        ls_match = re.match(r'^ls (.+)', content)
+        lsfiles_match = re.match(r'^lsfiles (.+)', content)
     
         if compress_match:
             files = compress_match.group(1).split(',')
@@ -34,10 +34,13 @@ while True:
             result = decompress(input_path, output_path)
             print(result)
 
-        elif ls_match:
+        elif lsfiles_match:
             path = content[3:]
             result = lsfiles(path)
             print(result)
+        
+        elif content == "ls":
+            print(os.listdir())
 
         elif content == "exit":
             sys.exit()
