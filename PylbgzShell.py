@@ -16,6 +16,7 @@ while True:
         decompress_match = re.match(r'^decompress (.+) output (.+)', content)
         compress_match2 = re.match(r'^compress (.+)', content)
         lsfiles_match = re.match(r'^lsfiles (.+)', content)
+        mkdir_match = re.match(r'^mkdir (.+)', content)
     
         if compress_match:
             files = compress_match.group(1).split(',')
@@ -47,6 +48,10 @@ while True:
 
         elif content == "":
             pass
+
+        elif mkdir_match:
+            path = mkdir_match.group(1)
+            os.mkdir(path)
 
         else:
             print("Invalid command. Please try again.")
