@@ -36,7 +36,7 @@ while True:
             print(result)
 
         elif lsfiles_match:
-            path = content[3:]
+            path = content[8:]
             result = lsfiles(path)
             print(result)
         
