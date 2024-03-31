@@ -52,7 +52,8 @@ exit
 
 ## 使用方法-Pylbgz api
 
-查看`main.py`来获取引入库的方法。引入后使用`api()`来调用。亦可以在PylbgzShell中使用`api`命令来启用api。
+查看`main.py`来获取引入库的方法。引入后使用`api()`来调用。可以直接运行`modules/api.py`来开始。
+默认端口：*5000*
 
 方法：(GET)
     1. 压缩文件：`URL/compress?file=[file_paths]&path=output_file_path`<br>

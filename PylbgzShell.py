@@ -57,9 +57,6 @@ while True:
             path = mkdir_match.group(1)
             os.mkdir(path)
 
-        elif content == "api":
-            api()
-
         else:
             print("Invalid command. Please try again.")
 
